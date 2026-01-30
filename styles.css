@@ -186,3 +186,103 @@ main {
         grid-column: span 2;
     }
 }
+
+/* Layout Wrapper for Side Ads */
+.layout-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
+.side-ad {
+    display: none;
+    /* Hidden on small screens */
+    width: 160px;
+    flex-shrink: 0;
+    margin-top: 2rem;
+}
+
+@media (min-width: 1400px) {
+    .side-ad {
+        display: block;
+    }
+}
+
+.ad-banner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    text-align: center;
+    min-height: 100px;
+    background: rgba(255, 255, 255, 0.02);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Interstitial Button */
+.interstitial-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--accent-color);
+    color: #0f172a;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 0 20px var(--accent-glow);
+    border: none;
+    z-index: 100;
+    transition: transform 0.2s;
+}
+
+.interstitial-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Ad Modal */
+.ad-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ad-modal.active {
+    display: flex;
+}
+
+.ad-modal-content {
+    background: #1e293b;
+    padding: 2rem;
+    border-radius: 16px;
+    max-width: 90%;
+    width: 500px;
+    text-align: center;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+}
