@@ -289,12 +289,36 @@ main {
 
 /* AI Trends Hero Card */
 .card.trends-hero {
-    background: linear-gradient(135deg, #4f46e5 0%, #ec4899 100%);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 40px rgba(236, 72, 153, 0.4);
+    background: linear-gradient(135deg, #4f46e5 0%, #ec4899 50%, #8b5cf6 100%);
+    background-size: 200% 200%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 50px rgba(236, 72, 153, 0.6);
     z-index: 10;
     position: relative;
     overflow: hidden;
+    animation: gradientMove 3s ease infinite;
+    min-height: 350px;
+    /* Make it taller */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+        box-shadow: 0 0 40px rgba(236, 72, 153, 0.5);
+    }
+
+    50% {
+        background-position: 100% 50%;
+        box-shadow: 0 0 70px rgba(236, 72, 153, 0.8), 0 0 30px rgba(139, 92, 246, 0.6);
+    }
+
+    100% {
+        background-position: 0% 50%;
+        box-shadow: 0 0 40px rgba(236, 72, 153, 0.5);
+    }
 }
 
 .card.trends-hero::after {
@@ -304,9 +328,9 @@ main {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transform: rotate(45deg);
-    animation: shine 3s infinite;
+    animation: shine 2.5s infinite;
 }
 
 @keyframes shine {
@@ -320,43 +344,67 @@ main {
 }
 
 .card.trends-hero h2 {
-    font-size: 2.2rem;
-    font-weight: 800;
+    font-size: 3rem;
+    /* Larger title */
+    font-weight: 900;
     color: #fff;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    margin-bottom: 0.5rem;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1rem;
     -webkit-text-fill-color: initial;
     background: none;
+    letter-spacing: -0.02em;
 }
 
 .card.trends-hero p {
-    color: rgba(255, 255, 255, 0.95);
-    font-size: 1.1rem;
-    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+    font-size: 1.3rem;
+    /* Larger text */
+    font-weight: 600;
+    max-width: 800px;
 }
 
 .card.trends-hero .card-icon {
-    font-size: 3rem;
+    font-size: 5rem;
+    /* Larger icon */
     color: #fff;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
-    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.7));
+    margin-bottom: 1.5rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .card.trends-hero .card-footer {
-    color: #fff;
-    font-weight: 700;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
+    color: #0f172a;
+    font-weight: 800;
+    background: #fff;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
     display: inline-flex;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     width: fit-content;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+.card.trends-hero .card-footer:hover {
+    transform: scale(1.05);
 }
 
 .card.trends-hero:hover {
-    transform: translateY(-5px) scale(1.01);
-    box-shadow: 0 20px 50px rgba(236, 72, 153, 0.6);
-    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-5px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.6);
 }
 
 @media (min-width: 768px) {
@@ -366,12 +414,13 @@ main {
         display: grid;
         grid-template-columns: auto 1fr;
         align-items: center;
-        gap: 2rem;
-        padding: 3rem;
+        gap: 4rem;
+        padding: 4rem;
     }
 
     .card.trends-hero .card-icon {
-        font-size: 4rem;
+        font-size: 8rem;
+        /* Even larger on desktop */
         margin-bottom: 0;
     }
 
@@ -382,6 +431,6 @@ main {
     }
 
     .card.trends-hero h2 {
-        font-size: 2.8rem;
+        font-size: 4rem;
     }
 }
